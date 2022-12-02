@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float money;
     public float Money { get { return money; } set { money = value; } }
+
+    [SerializeField] private TextMeshProUGUI moneyText;
 
     /*************************************
     // USING THIS DURING TESTING
@@ -40,15 +43,27 @@ public class GameManager : MonoBehaviour
                 //obj.GetComponent<ProductionPoint>().ChangeUnlockedState();
             }
         }
+
+        // update money UI
+        UpdateMoneyText();
     }
+
+    // ************************************STRPATI SAV DATA U SO***************************************
 
     public void Pay(float amount)
     {
         if(money >= amount)
         {
             money -= amount;
+
+            UpdateMoneyText();
         }
         else print("Not enough money!");
     }
 
+
+    public void UpdateMoneyText()
+    {
+        moneyText.text = "Money: " + money.ToString();
+    }
 }

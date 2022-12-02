@@ -21,6 +21,7 @@ public class GenerateMoney : MonoBehaviour
         {
             // add money
             GameManager.Instance.Money += pointSO.ProfitPerSecond;
+            GameManager.Instance.UpdateMoneyText();
 
             // some animations / effects
             
