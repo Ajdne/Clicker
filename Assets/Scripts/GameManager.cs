@@ -13,8 +13,15 @@ public class GameManager : MonoBehaviour
     /*************************************
     // USING THIS DURING TESTING
     **************************************/
+    [Space(20f)]
+    [Header("Game Testing Settings - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "), Space(10f)]
+
     public bool Testing;
-    [SerializeField] private List<GameObject> productionPointSOs;
+
+    [Space(10f)]
+    [SerializeField] private List<ProductionPointSO> productionPointSOs = new List<ProductionPointSO>();
+
+    //[Header("- - - - - - - - - -  - - - - - - - - - - "), Space(20f)]
     //************************************
 
     private void Awake()
@@ -22,16 +29,18 @@ public class GameManager : MonoBehaviour
         Instance ??= this;  // checks if Instance is null and if true, passes the value of "this"
     }
 
-    //private void Start()
-    //{
-    //    if(Testing) // reset the values of Scriptable Objects
-    //    {
-    //        foreach(GameObject obj in productionPointSOs)
-    //        {
-    //            obj.GetComponent<ProductionPoint>().ChangeUnlockedState();
-    //        }
-    //    }
-    //}
+    private void Start()
+    {
+        if (Testing) // reset the values of Scriptable Objects
+        {
+            foreach (ProductionPointSO so in productionPointSOs)
+            {
+                so.Reset();
+
+                //obj.GetComponent<ProductionPoint>().ChangeUnlockedState();
+            }
+        }
+    }
 
     public void Pay(float amount)
     {

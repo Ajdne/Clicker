@@ -17,12 +17,12 @@ public class GenerateMoney : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if(_timer > 5)
+        if(_timer > 1)
         {
             // add money
-            GameManager.Instance.Money += pointSO.Profit;
+            GameManager.Instance.Money += pointSO.ProfitPerSecond;
 
-            // pop some animations
+            // some animations / effects
             
 
             // reset timer
