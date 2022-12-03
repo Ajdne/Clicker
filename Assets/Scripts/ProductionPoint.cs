@@ -21,7 +21,7 @@ public class ProductionPoint : MonoBehaviour
         gm = GameManager.Instance;
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         outline.enabled = true;
 
@@ -43,10 +43,19 @@ public class ProductionPoint : MonoBehaviour
             // activate money generation
             moneyGeneration.enabled = true;
         }
-        else if(Input.GetMouseButtonDown(0) && !pointSO.IsUnlocked)
+        else if(Input.GetMouseButtonDown(0) && pointSO.IsUnlocked)
         {
+            if (!gm.CanPay(pointSO.Price))
+            {
+                return; // if can't pay, exit
+            }
+            // else
             // buy upgrade
+            gm.Pay(pointSO.Price);
+            pointSO.UpgradeProduction();
 
+            print(pointSO.Price);
+            print(pointSO.ProfitValue);
         }
     }
 
