@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb01bb9667447f4ebd06ce5afb5b1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 1000
+  playerData: {fileID: 11400000, guid: a910343439d38204696ea73c2f52ae33, type: 2}
   moneyText: {fileID: 1623424644}
   Testing: 1
   productionPointSOs:

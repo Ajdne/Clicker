@@ -8,9 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] private float money;
-    public float Money { get { return money; } set { money = value; } }
-
+    [SerializeField] private PlayerDataSO playerData;
     [SerializeField] private TextMeshProUGUI moneyText;
 
     /*************************************
@@ -39,31 +37,37 @@ public class GameManager : MonoBehaviour
             foreach (ProductionPointSO so in productionPointSOs)
             {
                 so.Reset();
-
                 //obj.GetComponent<ProductionPoint>().ChangeUnlockedState();
             }
+
+            // playerData.Reset();
         }
 
         // update money UI
         UpdateMoneyText();
     }
 
-    // ************************************STRPATI SAV DATA U SO***************************************
+    public bool CanPay(float amount)
+    {
+        return playerData.Money >= amount;
+    }
 
     public void Pay(float amount)
     {
-        if(money >= amount)
-        {
-            money -= amount;
+        playerData.Money -= amount;
 
-            UpdateMoneyText();
-        }
-        else print("Not enough money!");
+        UpdateMoneyText();
+    }
+    
+    public void Earn(float amount)
+    {
+        playerData.Money += amount;
+
+        UpdateMoneyText();
     }
 
-
-    public void UpdateMoneyText()
+    private void UpdateMoneyText()
     {
-        moneyText.text = "Money: " + money.ToString();
+        moneyText.text = "Money: " + playerData.Money.ToString();
     }
 }

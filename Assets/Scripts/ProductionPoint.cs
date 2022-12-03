@@ -27,6 +27,11 @@ public class ProductionPoint : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !pointSO.IsUnlocked)
         {
+            if(!gm.CanPay(pointSO.Price))
+            {
+                return; // if can't pay, exit
+            }
+            // else
             // pay and unlock the object
             gm.Pay(pointSO.Price);
             pointSO.IsUnlocked = true;
@@ -37,6 +42,11 @@ public class ProductionPoint : MonoBehaviour
 
             // activate money generation
             moneyGeneration.enabled = true;
+        }
+        else if(Input.GetMouseButtonDown(0) && !pointSO.IsUnlocked)
+        {
+            // buy upgrade
+
         }
     }
 

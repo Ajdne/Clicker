@@ -13,13 +13,17 @@ public class ProductionPointSO : ScriptableObject
     [SerializeField] private int price = 10;
     public int Price { get { return price; } }
 
-    [SerializeField] private float profitPerSecond = 1;
-    public float ProfitPerSecond { get { return profitPerSecond; } set { profitPerSecond = value; } }
+    [SerializeField] private float profitValue = 1;
+    public float ProfitValue { get { return profitValue; } set { profitValue = value; } }
+
+    [SerializeField] private float profitTime = 5;
+    public float ProfitTime { get { return profitTime; } set { profitTime = value; } }
 
     public void Reset()
     {
         isUnlocked = false;
         price = 10;
-        ProfitPerSecond = 1;
+        profitValue = 1;
+        profitTime = 5;
     }
 }
