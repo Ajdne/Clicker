@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Production Point SO", menuName = "Scriptable Objects/Production Points")]
-public class ProductionPointSO : UnlockableSO
+public class ProductionPointSO : ScriptableObject, IReset
 {
     [SerializeField] private bool isUnlocked = false;
     public bool IsUnlocked { get { return isUnlocked; } set { isUnlocked = value; } }
@@ -27,7 +27,7 @@ public class ProductionPointSO : UnlockableSO
     [SerializeField] private float profitTime = 5;
     public float ProfitTime { get { return profitTime; } set { profitTime = value; } }
 
-    // function that can be called in context menu
+    // function that can be called from context menu
     // used during testing
     public void Reset()
     {

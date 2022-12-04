@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     public bool Testing;
 
     [Space(10f)]
-    [SerializeField] private List<ProductionPointSO> productionPointSOs = new List<ProductionPointSO>();
+    [SerializeField] private List<ProductionPointSO> scriptableObjectsToReset = new List<ProductionPointSO>();
 
     //[Header("- - - - - - - - - -  - - - - - - - - - - "), Space(20f)]
     //************************************
@@ -34,13 +35,10 @@ public class GameManager : MonoBehaviour
     {
         if (Testing) // reset the values of Scriptable Objects
         {
-            foreach (ProductionPointSO so in productionPointSOs)
+            foreach (ProductionPointSO so in scriptableObjectsToReset)
             {
                 so.Reset();
-                //obj.GetComponent<ProductionPoint>().ChangeUnlockedState();
             }
-
-            // playerData.Reset();
         }
 
         // update money UI
