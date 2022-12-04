@@ -16,7 +16,6 @@ public class GenerateMoney : MonoBehaviour
     {
         pointSO = GetComponent<ProductionPoint>().PointSO;
 
-        progressBar.enabled = true;
         progressBar.fillAmount = 0; // just in case
     }
 

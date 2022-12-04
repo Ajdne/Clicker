@@ -8,7 +8,7 @@ public class UpgradePointSO : UnlockableSO
     [SerializeField] private bool isUnlocked = false;
     public bool IsUnlocked { get { return isUnlocked; } set { isUnlocked = value; } }
 
-    private int _upgradeLevel = 1;
+    private int _upgradeLevel = 0;
     public int UpgradeLevel { get { return _upgradeLevel; } set { _upgradeLevel = value; } }
 
     [SerializeField] private float price = 10;
@@ -21,7 +21,7 @@ public class UpgradePointSO : UnlockableSO
     {
         isUnlocked = false;
         price = 10;
-        _upgradeLevel = 1;
+        _upgradeLevel = 0;
     }
 
     public float UpgradeTimeCoefficient()
@@ -29,6 +29,6 @@ public class UpgradePointSO : UnlockableSO
         // f(x) = log(x)  ---> simulating diminishing returns by making the benefit of upgrade rise logarithmically
         timeCoefficinet = Mathf.Log10(UpgradeLevel) + 1;
 
-        return timeCoefficinet *= (0.2f * UpgradeLevel);
+        return timeCoefficinet += (0.2f * UpgradeLevel);
     }
 }

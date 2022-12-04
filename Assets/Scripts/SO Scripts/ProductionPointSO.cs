@@ -13,8 +13,11 @@ public class ProductionPointSO : UnlockableSO
     [SerializeField] private float price = 10;
     public float Price { get { return price; } set { price = value; } }
 
-    private int _upgradeLevel = 1;
+    private int _upgradeLevel = 0;
     public int UpgradeLevel { get { return _upgradeLevel; } set { _upgradeLevel = value; } }
+
+    private int _upgradeModel;  // saves the index of the active model
+    public int UpgradeModel { get { return _upgradeModel; } set { _upgradeModel = value; } }
 
     [SerializeField] private float profitValue = 1;
     public float ProfitValue { get { return profitValue; } }
@@ -31,28 +34,30 @@ public class ProductionPointSO : UnlockableSO
         IsUnlocked = false;
         Price = 10;
         profitValue = 1;
-        _upgradeLevel = 1;
+        _upgradeLevel = 0;
+        _upgradeModel = 0;
         profitTime = 5;
+        
     }
 
     public void UpgradeProduction()
     {
-        UpgradeLevel++;
+        _upgradeLevel++;
         IncreaseUpgradePrice();
         IncreaseProfitValue();
     }
-
-    public float IncreaseProfitValue()
+    private float IncreaseUpgradePrice()
     {
-        // f(x) = ln(x)  ---> simulating diminishing returns by making the benefit of upgrade rise logarithmically
-        _profitCoefficient = Mathf.Log10(UpgradeLevel) + 1;
-
-        return profitValue *= _profitCoefficient;
+        // linear rise - the benefits of upgrade are lower with higher levels
+        return price += (0.7f * _upgradeLevel);
     }
 
-    public float IncreaseUpgradePrice()
+    private float IncreaseProfitValue()
     {
-        // f(x) = 0.5 * x   ---> linear rise - the benefits of upgrade are lower with higher levels
-        return price *= (0.5f * _upgradeLevel);
+        // f(x) = log(x)  ---> simulating diminishing returns by making the benefit of upgrade rise logarithmically
+        _profitCoefficient = Mathf.Log10(_upgradeLevel) + 1;
+
+        return profitValue += _profitCoefficient;
     }
+
 }
