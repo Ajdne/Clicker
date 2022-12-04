@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -68,6 +68,28 @@ public class GameManager : MonoBehaviour
 
     private void UpdateMoneyText()
     {
-        moneyText.text = "Money: " + playerData.Money.ToString();
+        //moneyText.text = "Money: " + playerData.Money.ToString("C1");   // dollar currency format with 1 decimal space
+
+        moneyText.text = "Money: " + ToKMB(playerData.Money);
+    }
+
+    public static string ToKMB(float num)
+    {
+        if (num > 999999999)
+        {
+            return num.ToString("0,,,.###B", CultureInfo.InvariantCulture);
+        }
+        else if (num > 999999)
+        {
+            return num.ToString("0,,.###M", CultureInfo.InvariantCulture);
+        }
+        else if (num > 999)
+        {
+            return num.ToString("0,.###K", CultureInfo.InvariantCulture);
+        }
+        else
+        {
+            return num.ToString("C1");
+        }
     }
 }

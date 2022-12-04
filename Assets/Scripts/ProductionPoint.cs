@@ -69,4 +69,9 @@ public class ProductionPoint : MonoBehaviour
     //{
     //    pointSO.IsUnlocked = !pointSO.IsUnlocked;
     //}
+
+    private void Update()
+    {
+        
+    }
 }
