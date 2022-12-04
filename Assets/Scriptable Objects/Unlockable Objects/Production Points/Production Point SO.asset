@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08b447fa84e0b7f40901a8b7fbeaed43, type: 3}
-  m_Name: Player Data
+  m_Script: {fileID: 11500000, guid: f3290d6f1b147c24e9f79ac883554625, type: 3}
+  m_Name: Production Point SO
   m_EditorClassIdentifier: 
-  money: 1000
+  isUnlocked: 0
+  price: 10
+  profitValue: 1
+  objectType: 0
+  profitTime: 5

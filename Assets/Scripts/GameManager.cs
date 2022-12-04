@@ -70,26 +70,26 @@ public class GameManager : MonoBehaviour
     {
         //moneyText.text = "Money: " + playerData.Money.ToString("C1");   // dollar currency format with 1 decimal space
 
-        moneyText.text = "Money: " + ToKMB(playerData.Money);
+        moneyText.text = "Money: " + ToKMB(playerData.Money);   // formating the number
     }
 
     public static string ToKMB(float num)
     {
         if (num > 999999999)
         {
-            return num.ToString("0,,,.###B", CultureInfo.InvariantCulture);
+            return num.ToString("0,,,.###B");
         }
         else if (num > 999999)
         {
-            return num.ToString("0,,.###M", CultureInfo.InvariantCulture);
+            return num.ToString("0,,.###M");
         }
         else if (num > 999)
         {
-            return num.ToString("0,.###K", CultureInfo.InvariantCulture);
+            return num.ToString("0,.###k");
         }
         else
         {
-            return num.ToString("C1");
+            return num.ToString("C1"); // dollar currency format with 1 decimal space
         }
     }
 }

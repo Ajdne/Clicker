@@ -16,9 +16,13 @@ public class ProductionPoint : MonoBehaviour
     [SerializeField] private Outline outline;
     [SerializeField] private GenerateMoney moneyGeneration;
 
+    [SerializeField] private TMPro.TextMeshProUGUI upgradePriceText;
+
     private void Start()
     {
         gm = GameManager.Instance;
+
+        UpdatePriceText();
     }
 
     private void OnMouseOver()
@@ -42,6 +46,8 @@ public class ProductionPoint : MonoBehaviour
 
             // activate money generation
             moneyGeneration.enabled = true;
+
+            UpdatePriceText();
         }
         else if(Input.GetMouseButtonDown(0) && pointSO.IsUnlocked)
         {
@@ -56,6 +62,8 @@ public class ProductionPoint : MonoBehaviour
 
             print(pointSO.Price);
             print(pointSO.ProfitValue);
+
+            UpdatePriceText();
         }
     }
 
@@ -70,8 +78,8 @@ public class ProductionPoint : MonoBehaviour
     //    pointSO.IsUnlocked = !pointSO.IsUnlocked;
     //}
 
-    private void Update()
+    private void UpdatePriceText()
     {
-        
+        upgradePriceText.text = GameManager.ToKMB(pointSO.Price);
     }
 }
