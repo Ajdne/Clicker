@@ -15,15 +15,13 @@ public class GameManager : MonoBehaviour
     /*************************************
     // USING THIS DURING TESTING
     **************************************/
+    public delegate void Test();
+    public static event Test OnTesting;     // ---> all scriptable objects should subsrcibe to this event
+
     [Space(20f)]
     [Header("Game Testing Settings - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "), Space(10f)]
 
     public bool Testing;
-
-    [Space(10f)]
-    [SerializeField] private List<ProductionPointSO> scriptableObjectsToReset = new List<ProductionPointSO>();
-
-    //[Header("- - - - - - - - - -  - - - - - - - - - - "), Space(20f)]
     //************************************
 
     private void Awake()
@@ -35,10 +33,8 @@ public class GameManager : MonoBehaviour
     {
         if (Testing) // reset the values of Scriptable Objects
         {
-            foreach (ProductionPointSO so in scriptableObjectsToReset)
-            {
-                so.Reset();
-            }
+            // call the event   ---> all SOs will reset their values
+            OnTesting();
         }
 
         // update money UI

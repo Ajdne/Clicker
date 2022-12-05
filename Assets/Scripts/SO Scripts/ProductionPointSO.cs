@@ -39,6 +39,17 @@ public class ProductionPointSO : ScriptableObject
         profitTime = 5;
         
     }
+    private void OnEnable()
+    {
+        // subscribe to the event
+        GameManager.OnTesting += Reset;
+    }
+
+    private void OnDisable()
+    {
+        // unsubscribe to the event
+        GameManager.OnTesting -= Reset;
+    }
 
     public void UpgradeProduction()
     {

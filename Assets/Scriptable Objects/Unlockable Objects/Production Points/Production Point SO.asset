@@ -15,5 +15,4 @@ MonoBehaviour:
   isUnlocked: 0
   price: 10
   profitValue: 1
-  objectType: 0
   profitTime: 5

@@ -25,6 +25,18 @@ public class UpgradePointSO : UnlockableSO
         timeCoefficinet = 0.02f;
     }
 
+    private void OnEnable()
+    {
+        // subscribe to the event
+        GameManager.OnTesting += Reset;
+    }
+
+    private void OnDisable()
+    {
+        // unsubscribe to the event
+        GameManager.OnTesting -= Reset;
+    }
+
     //public float UpgradeTimeCoefficient()
     //{
     //    // f(x) = log(x)  ---> simulating diminishing returns by making the benefit of upgrade rise logarithmically

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Player Data SO", menuName = "Scriptable Objects/Player Data")]
-public class PlayerDataSO : ScriptableObject, IReset
+public class PlayerDataSO : ScriptableObject
 {
     [SerializeField] private float money;
     public float Money { get { return money; } set { money = value; } }
@@ -14,5 +14,16 @@ public class PlayerDataSO : ScriptableObject, IReset
     public void Reset()
     {
         money = 1000;
+    }
+    private void OnEnable()
+    {
+        // subscribe to the event
+        GameManager.OnTesting += Reset;
+    }
+
+    private void OnDisable()
+    {
+        // unsubscribe to the event
+        GameManager.OnTesting -= Reset;
     }
 }

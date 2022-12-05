@@ -13,4 +13,21 @@ public class TimeModifierSO : ScriptableObject
 {
     [SerializeField] private float timeModifierValue = 1;
     public float TimeModifierValue { get { return timeModifierValue; } set { timeModifierValue = value; } }
+
+    private void Reset()
+    {
+        timeModifierValue = 1;
+    }
+
+    private void OnEnable()
+    {
+        // subscribe to the event
+        GameManager.OnTesting += Reset;
+    }
+
+    private void OnDisable()
+    {
+        // unsubscribe to the event
+        GameManager.OnTesting -= Reset;
+    }
 }
