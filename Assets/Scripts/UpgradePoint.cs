@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UpgradePoint : MonoBehaviour
@@ -26,10 +27,16 @@ public class UpgradePoint : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !pointSO.IsUnlocked)
         {
+            if (EventSystem.current.IsPointerOverGameObject()) // using this to prevent clicking behind UI elements
+            {
+                return;
+            }
+
             if (!gm.CanPay(pointSO.Price))
             {
                 return; // if can't pay, exit
             }
+
             // else
             // pay and unlock the object
             gm.Pay(pointSO.Price);

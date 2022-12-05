@@ -4,6 +4,7 @@ using System.Globalization;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -85,5 +86,10 @@ public class GameManager : MonoBehaviour
         {
             return num.ToString("C1"); // dollar currency format with 1 decimal space
         }
+    }
+
+    public static void CheckForUIClick()    // using this method to prevent clicking behind UI elements
+    {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
     }
 }

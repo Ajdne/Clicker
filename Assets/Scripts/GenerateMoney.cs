@@ -20,6 +20,15 @@ public class GenerateMoney : MonoBehaviour
         pointSO = GetComponent<ProductionPoint>().PointSO;
 
         progressBar.fillAmount = 0; // just in case
+
+        // subscribe to the click event 
+        ClickToSpeedUp.OnClick += SpeedUp;
+    }
+
+    private void OnDisable()
+    {
+        // unsubscribe from the click event 
+        ClickToSpeedUp.OnClick -= SpeedUp;
     }
 
     private void Update()
@@ -43,5 +52,10 @@ public class GenerateMoney : MonoBehaviour
             // reset timer
             _timer = 0;
         }
+    }
+
+    private void SpeedUp()
+    {
+        _timer += 0.5f;
     }
 }

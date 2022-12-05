@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Outline))]
@@ -39,72 +40,74 @@ public class ProductionPoint : MonoBehaviour
     {
         outline.enabled = true;
 
-        if (Input.GetMouseButtonDown(0) && !pointSO.IsUnlocked)
+        if(Input.GetMouseButtonDown(0))
         {
-            if(!gm.CanPay(pointSO.Price))
+            if (EventSystem.current.IsPointerOverGameObject()) // using this to prevent clicking behind UI elements
             {
-                return; // if can't pay, exit
+                return; // if UI is clicked, exit
             }
-            // else
-            // pay and unlock the object
-            gm.Pay(pointSO.Price);
-            pointSO.IsUnlocked = true;
 
-            // de(avtivate) objects
-            lockedObj.SetActive(false);
-            unlockedObj.SetActive(true);
-            
-            upgradedObjects[currentActiveObject].SetActive(true);   // object with index 0
-
-            // activate money generation
-            moneyGeneration.enabled = true;
-
-            upgradeBar.fillAmount = 0;
-
-            UpdatePriceText();
-        }
-        else if(Input.GetMouseButtonDown(0) && pointSO.IsUnlocked)
-        {
             if (!gm.CanPay(pointSO.Price))
             {
                 return; // if can't pay, exit
             }
-            // else
-            // buy upgrade
-            gm.Pay(pointSO.Price);
-            pointSO.UpgradeProduction();
 
-            print(pointSO.Price);
-            print(pointSO.ProfitValue);
-
-            UpdatePriceText();
-
-            // ---------------------OVO TREBA U SO -------------------------
-
-            // if the upgrade bar canvas is active
-            if(upgradeBarCanvas.active)
+            if (!pointSO.IsUnlocked)
             {
-                // update upgrade progress bar
-                upgradeBar.fillAmount = ((float)pointSO.UpgradeLevel % 5) / 5;
+                // pay and unlock the object
+                gm.Pay(pointSO.Price);
+                pointSO.IsUnlocked = true;
 
-                // if at no fill ---> new upgrade unlocked
-                if (upgradeBar.fillAmount == 0)
+                // de(avtivate) objects
+                lockedObj.SetActive(false);
+                unlockedObj.SetActive(true);
+            
+                upgradedObjects[currentActiveObject].SetActive(true);   // object with index 0
+
+                // activate money generation
+                moneyGeneration.enabled = true;
+
+                upgradeBar.fillAmount = 0;
+
+                UpdatePriceText();
+            }
+            else if(pointSO.IsUnlocked)
+            {
+                // buy upgrade
+                gm.Pay(pointSO.Price);
+                pointSO.UpgradeProduction();
+
+                print(pointSO.Price);
+                print(pointSO.ProfitValue);
+
+                UpdatePriceText();
+
+                // if the upgrade bar canvas is active
+                if(upgradeBarCanvas.active)
                 {
-                    // deactivate current model
-                    upgradedObjects[currentActiveObject].SetActive(false);
+                    // update upgrade progress bar
+                    upgradeBar.fillAmount = ((float)pointSO.UpgradeLevel % 5) / 5;
 
-                    currentActiveObject++;
+                    // if at no fill ---> new upgrade unlocked
+                    if (upgradeBar.fillAmount == 0)
+                    {
+                        // deactivate current model
+                        upgradedObjects[currentActiveObject].SetActive(false);
 
-                    // activate next
-                    upgradedObjects[currentActiveObject].SetActive(true);
+                        currentActiveObject++;
+
+                        // activate next
+                        upgradedObjects[currentActiveObject].SetActive(true);
+                    }
+
+                    // if we have unlocked all models
+                    if (currentActiveObject == upgradedObjects.Count - 1)
+                    {
+                        // deactivate the bar canvas
+                        upgradeBarCanvas.SetActive(false);
+                    }    
                 }
 
-                // if we have unlocked all models
-                if (currentActiveObject == upgradedObjects.Count - 1)
-                {
-                    // deactivate the bar canvas
-                    upgradeBarCanvas.SetActive(false);
-                }    
             }
 
         }
