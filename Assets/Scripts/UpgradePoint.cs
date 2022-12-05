@@ -15,6 +15,13 @@ public class UpgradePoint : MonoBehaviour
     [SerializeField] private GameObject lockedObj;  // on by default
     [SerializeField] private GameObject unlockedObj;    // off by default
 
+    private void Start()
+    {
+        gm = GameManager.Instance;
+
+        //UpdatePriceText();
+    }
+
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0) && !pointSO.IsUnlocked)
