@@ -14,21 +14,22 @@ public class UpgradePointSO : UnlockableSO
     [SerializeField] private float price = 10;
     public float Price { get { return price; } set { price = value; } }
 
-    [SerializeField] private float timeCoefficinet = 1;
-    public float TimeCoefficient { set { timeCoefficinet = value; } }
+    [SerializeField] private float timeCoefficinet = 0.02f;
+    public float TimeCoefficient { get { return timeCoefficinet; } set { timeCoefficinet = value; } }
 
     public void Reset()
     {
         isUnlocked = false;
-        price = 10;
         _upgradeLevel = 0;
+        price = 10;
+        timeCoefficinet = 0.02f;
     }
 
-    public float UpgradeTimeCoefficient()
-    {
-        // f(x) = log(x)  ---> simulating diminishing returns by making the benefit of upgrade rise logarithmically
-        timeCoefficinet = Mathf.Log10(UpgradeLevel) + 1;
+    //public float UpgradeTimeCoefficient()
+    //{
+    //    // f(x) = log(x)  ---> simulating diminishing returns by making the benefit of upgrade rise logarithmically
+    //    timeCoefficinet = Mathf.Log10(UpgradeLevel) + 1;
 
-        return timeCoefficinet += (0.2f * UpgradeLevel);
-    }
+    //    return timeCoefficinet += (0.2f * UpgradeLevel);
+    //}
 }

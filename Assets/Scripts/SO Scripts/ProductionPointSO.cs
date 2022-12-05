@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Production Point SO", menuName = "Scriptable Objects/Production Points")]
-public class ProductionPointSO : ScriptableObject, IReset
+public class ProductionPointSO : ScriptableObject
 {
     [SerializeField] private bool isUnlocked = false;
     public bool IsUnlocked { get { return isUnlocked; } set { isUnlocked = value; } }

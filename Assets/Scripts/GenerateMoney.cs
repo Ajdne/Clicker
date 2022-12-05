@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class GenerateMoney : MonoBehaviour
 {
+    [Header("Connected SO")]
     private ProductionPointSO pointSO;
+    [SerializeField] private TimeModifierSO timeModifierSO;
+    [Space(15f)]
 
     private float _timer;
 
@@ -23,10 +26,13 @@ public class GenerateMoney : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        // progress bar has a value from 0 to 1, where the max value is at pointSO.ProfitTime
-        progressBar.fillAmount = _timer / pointSO.ProfitTime;
+        // time needed to generate money, modified by upgrades
+        float modifiedTime = pointSO.ProfitTime * timeModifierSO.TimeModifierValue;
 
-        if(_timer > pointSO.ProfitTime)
+        // progress bar has a value from 0 to 1, where the max value is at pointSO.ProfitTime * time modifier value
+        progressBar.fillAmount = _timer / modifiedTime;
+
+        if(_timer >= modifiedTime)
         {
             // add money
             GameManager.Instance.Earn(pointSO.ProfitValue);

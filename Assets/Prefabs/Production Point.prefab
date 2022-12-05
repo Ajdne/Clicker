@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointSO: {fileID: 0}
+  timeModifierSO: {fileID: 11400000, guid: 42e84340cbadd794eae1e5eef10ceb45, type: 2}
   lockedObj: {fileID: 2931633695162933591}
   unlockedObj: {fileID: 1579548292040095543}
   outline: {fileID: 4680519820652962904}

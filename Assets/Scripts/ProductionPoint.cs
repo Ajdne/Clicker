@@ -8,8 +8,11 @@ public class ProductionPoint : MonoBehaviour
 {
     private GameManager gm;
 
+    [Header("Connected SO")]
     [SerializeField] private ProductionPointSO pointSO;
     public ProductionPointSO PointSO { get { return pointSO; } }
+    [Space(15f)]
+
     [SerializeField] private GameObject lockedObj;  // on by default
     [SerializeField] private GameObject unlockedObj;    // off by default
 
@@ -28,7 +31,6 @@ public class ProductionPoint : MonoBehaviour
     private void Start()
     {
         gm = GameManager.Instance;
-
 
         UpdatePriceText();
     }
