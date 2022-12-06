@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,10 +16,17 @@ public class UpgradePoint : MonoBehaviour
 
     [SerializeField] private GameObject lockedObj;  // on by default
     [SerializeField] private GameObject unlockedObj;    // off by default
+    [Space(10)]
+    [SerializeField] private GameObject speedUpCanvas;  // off by default
+    [SerializeField] private TextMeshProUGUI speedUpText;
 
     private void Start()
     {
         gm = GameManager.Instance;
+
+        // update text that displays the benefit of the upgrade
+        // time coefficient is the percenatage
+        speedUpText.text = "+" + (pointSO.TimeCoefficient * 100).ToString() + "% SPEED"; 
 
         //UpdatePriceText();
     }
@@ -45,6 +53,8 @@ public class UpgradePoint : MonoBehaviour
             // de(avtivate) objects
             lockedObj.SetActive(false);
             unlockedObj.SetActive(true);
+
+            speedUpCanvas.SetActive(true);
 
             // apply upgrade ---> reduce the timer for money generation
             timeModifierSO.TimeModifierValue -= pointSO.TimeCoefficient;

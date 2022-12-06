@@ -7,6 +7,7 @@ public class FloatingUpgradeText : MonoBehaviour
 {
     [SerializeField] private float floatSpeed;
     [SerializeField] private float floatDuration;
+    [SerializeField] private CanvasGroup canvasGroup;
 
     private float timer;
     private Transform _startPos;
@@ -28,10 +29,13 @@ public class FloatingUpgradeText : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        while (timer < 12f)
+        while (timer < floatDuration)
         {
             // float up
             transform.Translate(0, floatSpeed * Time.deltaTime, 0, Space.World);
+
+            // fade out ---> 1 is max value, and it reaches 0 as the timer gets closer to the float duration
+            canvasGroup.alpha = 1 - timer / floatDuration;
 
             timer += Time.deltaTime;
             yield return null;

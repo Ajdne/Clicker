@@ -53,7 +53,6 @@ MonoBehaviour:
   pointSO: {fileID: 0}
   lockedObj: {fileID: 2931633695162933591}
   unlockedObj: {fileID: 1579548292040095543}
-  outline: {fileID: 4680519820652962904}
   moneyGeneration: {fileID: 5308109058530016566}
   upgradeBarCanvas: {fileID: 1094525092068563144}
   upgradeBar: {fileID: 6372537981298929710}
@@ -1751,6 +1750,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8782598862716592704}
     m_Modifications:
+    - target: {fileID: 470440992335204594, guid: 780e070bd0fbcd742a4be40d2f8cea59,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6221774886195165161, guid: 780e070bd0fbcd742a4be40d2f8cea59,
         type: 3}
       propertyPath: m_RootOrder
