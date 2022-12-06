@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject musicOnButton;
     [SerializeField] private GameObject musicOffButton;
     [Space(10)]
+    [SerializeField] private GameObject clickButton;
 
     [Header("Audio Settings"), Space(10)]
     [SerializeField] private AudioListener audioListener;   // for all sounds
@@ -23,6 +24,8 @@ public class UIManager : MonoBehaviour
     {
         menuCanvas.SetActive(true);
         menuButton.SetActive(false);
+
+        clickButton.SetActive(false);
     }
 
     public void SoundOnOff()    // its starts with sound ON
@@ -54,5 +57,7 @@ public class UIManager : MonoBehaviour
         // deactivate menu canvas
         menuCanvas.SetActive(false);
         menuButton.SetActive(true);
+
+        clickButton.SetActive(true);
     }
 }
