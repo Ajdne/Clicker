@@ -1939,6 +1939,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
+      propertyPath: pointSO
+      value: 
+      objectReference: {fileID: 11400000, guid: be0a3116d7ad080469c30da3b81e6c08,
+        type: 2}
+    - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
       propertyPath: unlockedObj
       value: 
       objectReference: {fileID: 344573189}
@@ -2739,6 +2745,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1248490399323856292, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_text
@@ -4420,6 +4431,11 @@ PrefabInstance:
     - target: {fileID: 3647018480485340673, guid: eda6bcac59d754e47ab9b941adc773cc,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806866773404197616, guid: eda6bcac59d754e47ab9b941adc773cc,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3976208148858095065, guid: eda6bcac59d754e47ab9b941adc773cc,
