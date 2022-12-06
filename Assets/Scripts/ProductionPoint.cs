@@ -17,7 +17,6 @@ public class ProductionPoint : MonoBehaviour
     [SerializeField] private GameObject lockedObj;  // on by default
     [SerializeField] private GameObject unlockedObj;    // off by default
 
-    [SerializeField] private Outline outline;
     [SerializeField] private GenerateMoney moneyGeneration;
 
     [Space(15f)]
@@ -38,8 +37,6 @@ public class ProductionPoint : MonoBehaviour
 
     private void OnMouseOver()
     {
-        outline.enabled = true;
-
         if(Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject()) // using this to prevent clicking behind UI elements
@@ -111,11 +108,6 @@ public class ProductionPoint : MonoBehaviour
             }
 
         }
-    }
-
-    private void OnMouseExit()
-    {
-        outline.enabled = false;
     }
 
     //[ContextMenu("Change Unlocked State")]

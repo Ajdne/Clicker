@@ -1598,6 +1598,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
+      propertyPath: pointSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 362e4d7f470a32e4e9cc81ac68e38874,
+        type: 2}
+    - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
       propertyPath: unlockedObj
       value: 
       objectReference: {fileID: 1476893847}
@@ -3053,6 +3059,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
+      propertyPath: pointSO
+      value: 
+      objectReference: {fileID: 11400000, guid: b5351e694f49a5341a352ef565468abd,
+        type: 2}
+    - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
       propertyPath: unlockedObj
       value: 
       objectReference: {fileID: 1493047353}
@@ -4018,7 +4030,7 @@ GameObject:
   - component: {fileID: 1573841798}
   - component: {fileID: 1573841797}
   - component: {fileID: 1573841796}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera Bounding Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
