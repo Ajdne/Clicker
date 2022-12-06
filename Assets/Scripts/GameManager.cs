@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         moneyText.text = "Money: " + ToKMB(playerData.Money);   // formating the number
     }
 
-    public static string ToKMB(float num)
+    public static string ToKMB(float num)   // method that formats text
     {
         if (num > 999999999)
         {

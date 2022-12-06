@@ -17,7 +17,7 @@ public class UpgradePoint : MonoBehaviour
     [SerializeField] private GameObject lockedObj;  // on by default
     [SerializeField] private GameObject unlockedObj;    // off by default
     [Space(10)]
-    [SerializeField] private GameObject speedUpCanvas;  // off by default
+    [SerializeField] private FloatingUpgradeText speedUpCanvasScript;
     [SerializeField] private TextMeshProUGUI speedUpText;
 
     private void Start()
@@ -54,7 +54,8 @@ public class UpgradePoint : MonoBehaviour
             lockedObj.SetActive(false);
             unlockedObj.SetActive(true);
 
-            speedUpCanvas.SetActive(true);
+            // make the text float up, fade away
+            StartCoroutine(speedUpCanvasScript.FlyAway());
 
             // apply upgrade ---> reduce the timer for money generation
             timeModifierSO.TimeModifierValue -= pointSO.TimeCoefficient;

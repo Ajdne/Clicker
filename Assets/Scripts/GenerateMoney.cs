@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ public class GenerateMoney : MonoBehaviour
     private ProductionPointSO pointSO;
     [SerializeField] private TimeModifierSO timeModifierSO;
     [Space(15f)]
+
+    [SerializeField] private FloatingUpgradeText moneyEarnedCanvasScript;
+    [SerializeField] private TextMeshProUGUI moneyEarnedText;
 
     private float _timer;
 
@@ -47,7 +51,9 @@ public class GenerateMoney : MonoBehaviour
             GameManager.Instance.Earn(pointSO.ProfitValue);
 
             // some animations / effects
-            
+            moneyEarnedText.text = "+" + GameManager.ToKMB((pointSO.ProfitValue)); // formating text
+            // make the dollars fade away
+            StartCoroutine(moneyEarnedCanvasScript.FlyAway());
 
             // reset timer
             _timer = 0;

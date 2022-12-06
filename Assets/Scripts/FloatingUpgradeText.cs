@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// This script is called for every floating text in the game (upgrades and money generation)
+/// </summary>
 public class FloatingUpgradeText : MonoBehaviour
 {
     [SerializeField] private float floatSpeed;
@@ -10,23 +13,28 @@ public class FloatingUpgradeText : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
 
     private float timer;
-    private Transform _startPos;
+    [SerializeField] private Transform _startPos;
 
     private void Start()
     {
-        _startPos = transform;
-        StartCoroutine(FlyAway());
+        // it is invisible until unlocked
+        canvasGroup.alpha = 0;  //  is set to 0 by default, but just in case...
+
+        // save the starting position
+        //_startPos = transform;
     }
 
-
-    //// Update is called once per frame
-    //void Update()
+    //public void Activate()
     //{
-    //    transform.position = Vector3.Lerp(_startPos.position, floatDestination.position, 1 * Time.deltaTime);
+    //    this.gameObject.SetActive(true);
+    //    StartCoroutine(FlyAway());
     //}
 
-    IEnumerator FlyAway()
+    public IEnumerator FlyAway()
     {
+        transform.position = _startPos.position;
+        canvasGroup.alpha = 1;
+
         yield return new WaitForSeconds(0.1f);
 
         while (timer < floatDuration)
@@ -41,7 +49,10 @@ public class FloatingUpgradeText : MonoBehaviour
             yield return null;
         }
 
-        // deactivate the object
-        this.gameObject.SetActive(false);
+        //reset the timer
+        timer = 0;
+
+        // stop this coroutine
+        StopCoroutine(FlyAway());
     }
 }
