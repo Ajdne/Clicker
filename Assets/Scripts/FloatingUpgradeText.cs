@@ -5,13 +5,19 @@ using UnityEngine;
 
 public class FloatingUpgradeText : MonoBehaviour
 {
+    [SerializeField] private float floatSpeed;
     [SerializeField] private Transform floatDestination;
-    private float _currentPosY;
+    private Transform _startPos;
+
+    private void Start()
+    {
+        _startPos = transform;
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, floatDestination.position, 1 * Time.deltaTime);
+        transform.position = Vector3.Lerp(_startPos.position, floatDestination.position, 1 * Time.deltaTime);
     }
 }
