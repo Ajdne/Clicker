@@ -15,12 +15,7 @@ public class ClickToSpeedUp : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            //if (EventSystem.current.IsPointerOverGameObject()) // using this to prevent clicking behind UI elements
-            //{
-            //    return; 
-            //}
-            // else
-
+            // call event
             OnClick();
 
             // play animation

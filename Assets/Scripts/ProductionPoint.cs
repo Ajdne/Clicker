@@ -86,8 +86,8 @@ public class ProductionPoint : MonoBehaviour
             gm.Pay(pointSO.Price);
             pointSO.UpgradeProduction();
 
-            print(pointSO.Price);
-            print(pointSO.ProfitValue);
+            //print(pointSO.Price);
+            //print(pointSO.ProfitValue);
 
             UpdatePriceText();
 
@@ -103,8 +103,6 @@ public class ProductionPoint : MonoBehaviour
                 return;
             }
 
-            print("jebiga");
-
             // update upgrade progress bar
             upgradeBar.fillAmount = ((float)pointSO.UpgradeLevel % 5) / 5;
 
@@ -118,6 +116,9 @@ public class ProductionPoint : MonoBehaviour
 
                 // activate next
                 upgradedObjects[currentActiveObject].SetActive(true);
+
+                // reset the timer on money generation
+                moneyGeneration.ResetTimer();
 
                 // play upgrade sound
                 audioSource.PlayOneShot(levelUpClip);
