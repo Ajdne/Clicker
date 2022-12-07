@@ -11,18 +11,20 @@ public class UpgradePointSO : UnlockableSO
     private int _upgradeLevel = 0;
     public int UpgradeLevel { get { return _upgradeLevel; } set { _upgradeLevel = value; } }
 
-    [SerializeField] private float price = 10;
+    [SerializeField] private float setPrice = 1000;
+    private float price;
     public float Price { get { return price; } set { price = value; } }
 
-    [SerializeField] private float timeCoefficinet = 0.02f;
+    [SerializeField] private float setTimeCoefficient = 0.05f;
+    private float timeCoefficinet;
     public float TimeCoefficient { get { return timeCoefficinet; } set { timeCoefficinet = value; } }
 
     public void Reset()
     {
         isUnlocked = false;
         _upgradeLevel = 0;
-        price = 10;
-        timeCoefficinet = 0.02f;
+        price = setPrice;
+        timeCoefficinet = setTimeCoefficient;
     }
 
     private void OnEnable()

@@ -10,7 +10,8 @@ public class ProductionPointSO : ScriptableObject
     [SerializeField] private bool isUnlocked = false;
     public bool IsUnlocked { get { return isUnlocked; } set { isUnlocked = value; } }
 
-    [SerializeField] private float price = 10;
+    [SerializeField] private float setPrice = 100;
+    private float price;
     public float Price { get { return price; } set { price = value; } }
 
     private int _upgradeLevel = 0;
@@ -19,25 +20,33 @@ public class ProductionPointSO : ScriptableObject
     private int _upgradeModel;  // saves the index of the active model
     public int UpgradeModel { get { return _upgradeModel; } set { _upgradeModel = value; } }
 
-    [SerializeField] private float profitValue = 1;
+    [SerializeField] private float setProfitValue = 1;
+    private float profitValue;
     public float ProfitValue { get { return profitValue; } }
 
     private float _profitCoefficient;
 
-    [SerializeField] private float profitTime = 5;
+    [SerializeField] private float setProfitTime = 5;
+    private float profitTime;
     public float ProfitTime { get { return profitTime; } set { profitTime = value; } }
+
+    //private void OnValidate()   // saving data for reset function
+    //{
+    //    price = setPrice;
+    //    profitTime = setProfitTime;
+    //}
 
     // function that can be called from context menu
     // used during testing
     public void Reset()
     {
         IsUnlocked = false;
-        Price = 10;
-        profitValue = 1;
+        price = setPrice;
+        profitValue = setProfitValue;
         _upgradeLevel = 0;
         _upgradeModel = 0;
-        profitTime = 5;
-        
+        profitTime = setProfitTime;
+
     }
     private void OnEnable()
     {

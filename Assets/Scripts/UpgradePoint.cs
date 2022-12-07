@@ -22,6 +22,8 @@ public class UpgradePoint : MonoBehaviour
     [SerializeField] private FloatingUpgradeText speedUpCanvasScript;
     [SerializeField] private TextMeshProUGUI speedUpText;
 
+    [SerializeField] private TextMeshProUGUI upgradePriceText;
+
     private void Start()
     {
         gm = GameManager.Instance;
@@ -30,7 +32,8 @@ public class UpgradePoint : MonoBehaviour
         // time coefficient is the percenatage
         speedUpText.text = "+" + (pointSO.TimeCoefficient * 100).ToString() + "% SPEED"; 
 
-        //UpdatePriceText();
+        // update canvas
+        upgradePriceText.text = GameManager.ToKMB(pointSO.Price);
     }
 
     private void OnMouseOver()

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a45cbfed6001e4e99a28f4dcb711c5, type: 3}
   m_Name: Music Upgrade SO
   m_EditorClassIdentifier: 
-  isUnlocked: 1
-  price: 5000
-  timeCoefficinet: 0.02
+  isUnlocked: 0
+  setPrice: 1000
+  setTimeCoefficient: 0.05

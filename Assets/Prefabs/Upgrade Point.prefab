@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1248490398950528565
 RectTransform:
@@ -88,7 +88,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1248490399323856288
 Transform:
@@ -218,7 +218,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1248490399404826078
 RectTransform:
@@ -233,6 +233,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248490398950528565}
+  - {fileID: 1199582915368496882}
   m_Father: {fileID: 7958207025220540142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -318,7 +319,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7958207025220540142
 Transform:
@@ -327,14 +328,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061510128590002363}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.05, y: 0, z: -5.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248490399404826078}
   - {fileID: 1248490399323856288}
-  - {fileID: 1199582915368496882}
   - {fileID: 4663565627334184466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -364,12 +364,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ff82f2bea754c498430925dd775245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointSO: {fileID: 11400000, guid: 74cf008b01d9a1c408792a55c4665164, type: 2}
+  pointSO: {fileID: 11400000, guid: b5351e694f49a5341a352ef565468abd, type: 2}
   timeModifierSO: {fileID: 11400000, guid: 42e84340cbadd794eae1e5eef10ceb45, type: 2}
   lockedObj: {fileID: 1248490399404826050}
   unlockedObj: {fileID: 1248490399323856292}
   speedUpCanvasScript: {fileID: 4663565627334184463}
   speedUpText: {fileID: 4663565628231581624}
+  upgradePriceText: {fileID: 1873900367882977675}
 --- !u!1 &3306868762244001466
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +387,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1199582915368496882
 RectTransform:
@@ -395,18 +396,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3306868762244001466}
-  m_LocalRotation: {x: 0.35355338, y: -0.35355338, z: 0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalRotation: {x: -0.35355344, y: -0.1464466, z: 0.35355335, w: 0.85355335}
+  m_LocalPosition: {x: 0, y: 0, z: -0.9000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6521924595740243007}
-  m_Father: {fileID: 7958207025220540142}
-  m_RootOrder: 2
+  m_Father: {fileID: 1248490399404826078}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: -45, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.75, y: 0.8499999}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6280294657005309722
@@ -469,7 +470,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &6521924595740243007
 RectTransform:
@@ -519,7 +520,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: '500$
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 721f3d5211d0040459a6895ec2c5e4f2, type: 2}
   m_sharedMaterial: {fileID: -7889403161645049754, guid: 721f3d5211d0040459a6895ec2c5e4f2,
@@ -547,13 +550,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.4
-  m_fontSizeBase: 0.4
+  m_fontSize: 0.6
+  m_fontSizeBase: 0.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 1
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -686,7 +689,7 @@ PrefabInstance:
     - target: {fileID: 4337019292521628864, guid: 3cbce36b17f5bc6439974c6bfc543408,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4337019292521628864, guid: 3cbce36b17f5bc6439974c6bfc543408,
         type: 3}

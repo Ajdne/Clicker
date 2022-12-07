@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3290d6f1b147c24e9f79ac883554625, type: 3}
   m_Name: Production Point SO 4
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 10
-  profitPerSecond: 1
+  isUnlocked: 1
+  setPrice: 10
+  setProfitValue: 2
+  setProfitTime: 5

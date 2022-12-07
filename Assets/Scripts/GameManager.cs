@@ -28,16 +28,16 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance ??= this;  // checks if Instance is null and if true, passes the value of "this"
-    }
-
-    private void Start()
-    {
+        
         if (Testing) // reset the values of Scriptable Objects
         {
             // call the event   ---> all SOs will reset their values
             OnTesting();
         }
+    }
 
+    private void Start()
+    {
         // update money UI
         UpdateMoneyText();
     }
