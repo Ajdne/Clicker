@@ -669,9 +669,14 @@ PrefabInstance:
     - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_text
-      value: 'Bar
+      value: '15000$
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2061510128590002363, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -696,7 +701,7 @@ PrefabInstance:
     - target: {fileID: 4663565627334184466, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -2085,9 +2090,14 @@ PrefabInstance:
     - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_text
-      value: 'Music Corner
+      value: '5000$
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2061510128590002363, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -2117,7 +2127,7 @@ PrefabInstance:
     - target: {fileID: 4663565627334184466, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -2797,7 +2807,22 @@ PrefabInstance:
     - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_text
-      value: TV corner
+      value: 2000$
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2061510128590002363, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -2827,7 +2852,7 @@ PrefabInstance:
     - target: {fileID: 4663565627334184466, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -3666,7 +3691,12 @@ PrefabInstance:
     - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_text
-      value: Cantina
+      value: 10000$
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2061510128590002363, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -3885,9 +3915,14 @@ PrefabInstance:
     - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_text
-      value: 'Green Corner
+      value: '500$
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873900367882977675, guid: 9569740cb676b8f4f983f777ec657e0e,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2061510128590002363, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
@@ -3912,7 +3947,7 @@ PrefabInstance:
     - target: {fileID: 4663565627334184466, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7958207025220540140, guid: 9569740cb676b8f4f983f777ec657e0e,
         type: 3}

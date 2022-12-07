@@ -336,6 +336,7 @@ MonoBehaviour:
   floatSpeed: 2
   floatDuration: 2
   canvasGroup: {fileID: 4337019292521628894}
+  _startPos: {fileID: 0}
 --- !u!225 &4337019292521628894
 CanvasGroup:
   m_ObjectHideFlags: 0

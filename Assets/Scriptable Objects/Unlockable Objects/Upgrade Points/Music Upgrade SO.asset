@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Music Upgrade SO
   m_EditorClassIdentifier: 
   isUnlocked: 1
-  price: 10
+  price: 5000
   timeCoefficinet: 0.02
