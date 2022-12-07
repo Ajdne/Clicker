@@ -381,7 +381,7 @@ MonoBehaviour:
   soundOffButton: {fileID: 1476929993}
   musicOnButton: {fileID: 901254438}
   musicOffButton: {fileID: 1180443921}
-  clickButton: {fileID: 0}
+  clickButton: {fileID: 1973000027}
   audioListener: {fileID: 330585544}
   audioSource: {fileID: 330585550}
 --- !u!1 &119079462
@@ -3088,7 +3088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -258.75}
+  m_AnchoredPosition: {x: 80, y: -301.5}
   m_SizeDelta: {x: 160, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901254440
@@ -4782,7 +4782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1490547472
 RectTransform:
   m_ObjectHideFlags: 0
