@@ -16,7 +16,9 @@ public class UpgradePoint : MonoBehaviour
 
     [SerializeField] private GameObject lockedObj;  // on by default
     [SerializeField] private GameObject unlockedObj;    // off by default
-    [Space(10)]
+    [Space(20)]
+
+    [Header("Canvas Settings"), Space(5)]
     [SerializeField] private FloatingUpgradeText speedUpCanvasScript;
     [SerializeField] private TextMeshProUGUI speedUpText;
 

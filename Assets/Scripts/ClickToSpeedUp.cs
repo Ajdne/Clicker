@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class ClickToSpeedUp : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource audioSource;
 
     public delegate void Click();
     public static event Click OnClick;     // ---> all production points will subscribe
@@ -24,6 +25,9 @@ public class ClickToSpeedUp : MonoBehaviour
 
             // play animation
             animator.Play("ClickButton");
+
+            // play sound
+            audioSource.Play();
         }
     }
 }

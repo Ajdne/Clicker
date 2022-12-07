@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Outline))]
 public class ProductionPoint : MonoBehaviour
 {
     private GameManager gm;
@@ -18,8 +17,15 @@ public class ProductionPoint : MonoBehaviour
     [SerializeField] private GameObject unlockedObj;    // off by default
 
     [SerializeField] private GenerateMoney moneyGeneration;
+    [Space(20)]
 
+    [Header("Audio Setting"), Space(5)]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip levelUpClip; // plays on every upgrade
+    [SerializeField] private AudioClip buyClip; // plays on every purchase
     [Space(15f)]
+
+    [Header("Canvas Settings"), Space(5)]
     [SerializeField] private GameObject upgradeBarCanvas;
     [SerializeField] private Image upgradeBar;
     [SerializeField] private TMPro.TextMeshProUGUI upgradePriceText;
@@ -69,11 +75,14 @@ public class ProductionPoint : MonoBehaviour
 
             upgradeBar.fillAmount = 0;
 
+            // play buy sound
+            audioSource.PlayOneShot(buyClip);
+
             UpdatePriceText();
         }
         else if(pointSO.IsUnlocked)
         {
-            // buy upgrade
+            // buy upgrade - pay the price
             gm.Pay(pointSO.Price);
             pointSO.UpgradeProduction();
 
@@ -82,11 +91,20 @@ public class ProductionPoint : MonoBehaviour
 
             UpdatePriceText();
 
+            // change pitch
+            audioSource.pitch = (float)pointSO.UpgradeLevel / 100 + 0.6f;
+
+            // play buy sound
+            audioSource.PlayOneShot(buyClip);
+
             // if the upgrade bar canvas is active
             if (!upgradeBarCanvas.active)
             {
                 return;
             }
+
+            print("jebiga");
+
             // update upgrade progress bar
             upgradeBar.fillAmount = ((float)pointSO.UpgradeLevel % 5) / 5;
 
@@ -100,6 +118,9 @@ public class ProductionPoint : MonoBehaviour
 
                 // activate next
                 upgradedObjects[currentActiveObject].SetActive(true);
+
+                // play upgrade sound
+                audioSource.PlayOneShot(levelUpClip);
             }
 
             // if we have unlocked all models
