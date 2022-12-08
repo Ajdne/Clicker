@@ -31,10 +31,11 @@ public class UIManager : MonoBehaviour
     public void SoundOnOff()    // its starts with sound ON
     {
         // turn off/on audio listener
-        audioListener.enabled = !audioListener.enabled;
+        AudioListener.pause = !AudioListener.pause;
+        //audioListener.enabled = !audioListener.enabled;
 
-        soundOnButton.SetActive(audioListener.enabled);
-        soundOffButton.SetActive(!audioListener.enabled);
+        soundOnButton.SetActive(!AudioListener.pause);
+        soundOffButton.SetActive(AudioListener.pause);
     }
 
     public void MusicOnOff()    // its starts with music ON
