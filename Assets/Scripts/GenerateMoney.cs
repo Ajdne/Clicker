@@ -11,11 +11,15 @@ public class GenerateMoney : MonoBehaviour
     [SerializeField] private TimeModifierSO timeModifierSO;
     [Space(15f)]
 
+    [SerializeField] private ProductionPoint productionPoint;
+
     [SerializeField] private FloatingUpgradeText moneyEarnedCanvasScript;
     [SerializeField] private TextMeshProUGUI moneyEarnedText;
 
     private float _timer;
     public float Timer { get { return _timer; } set { _timer = value; } }   // drone is using this
+
+    private float _modifiedTime;
 
     [Space(10)]
     [SerializeField] private bool canBeSpedUp = true;   // drones should not be sped up
@@ -25,14 +29,20 @@ public class GenerateMoney : MonoBehaviour
 
     private void Start()
     {
-        _pointSO = GetComponent<ProductionPoint>().PointSO;
+        _pointSO = productionPoint.PointSO;
 
         progressBar.fillAmount = 0; // just in case
+
+        // do not modify time
+        _modifiedTime = _pointSO.ProfitTime;
 
         if (canBeSpedUp)
         {
             // subscribe to the click event 
             ClickToSpeedUp.OnClick += SpeedUp;
+
+            // subscribe to the upgrade event 
+            UpgradePoint.OnUpgrade += UpgradeSpeed;
         }
     }
 
@@ -40,19 +50,19 @@ public class GenerateMoney : MonoBehaviour
     {
         // unsubscribe from the click event 
         ClickToSpeedUp.OnClick -= SpeedUp;
+
+        // unsubscribe from the upgrade event 
+        UpgradePoint.OnUpgrade -= UpgradeSpeed;
     }
 
     private void Update()
     {
         _timer += Time.deltaTime;
 
-        // time needed to generate money, modified by upgrades
-        float modifiedTime = _pointSO.ProfitTime * timeModifierSO.TimeModifierValue;
-
         // progress bar has a value from 0 to 1, where the max value is at pointSO.ProfitTime * time modifier value
-        progressBar.fillAmount = _timer / modifiedTime;
+        progressBar.fillAmount = _timer / _modifiedTime;
 
-        if (_timer >= modifiedTime)
+        if (_timer >= _modifiedTime)
         {
             // add money
             GameManager.Instance.Earn(_pointSO.ProfitValue);
@@ -75,5 +85,11 @@ public class GenerateMoney : MonoBehaviour
     public void ResetTimer()    // called when a new drone is bought
     {
         _timer = 0;
+    }
+
+    private void UpgradeSpeed()
+    {
+        // time needed to generate money, modified by upgrades
+        _modifiedTime = _pointSO.ProfitTime * timeModifierSO.TimeModifierValue;
     }
 }

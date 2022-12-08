@@ -9,6 +9,9 @@ public class UpgradePoint : MonoBehaviour
 {
     private GameManager gm;
 
+    public delegate void UpgradeSpeed();
+    public static event UpgradeSpeed OnUpgrade;   // ---> all Generate Money scripts will subscribe except drones
+
     [Header("Connected SO")]
     [SerializeField] private UpgradePointSO pointSO;
     [SerializeField] private TimeModifierSO timeModifierSO;
@@ -64,6 +67,9 @@ public class UpgradePoint : MonoBehaviour
 
             // apply upgrade ---> reduce the timer for money generation
             timeModifierSO.TimeModifierValue -= pointSO.TimeCoefficient;
+
+            // activate event
+            OnUpgrade();
         }
     }
 }

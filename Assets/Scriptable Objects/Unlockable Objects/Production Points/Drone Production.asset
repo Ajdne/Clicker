@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Drone Production
   m_EditorClassIdentifier: 
   isUnlocked: 0
-  setPrice: 5000
-  setProfitValue: 250
+  setPrice: 10000
+  setProfitValue: 1000
   setProfitTime: 10

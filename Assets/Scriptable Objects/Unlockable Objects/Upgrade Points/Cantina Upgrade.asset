@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cantina Upgrade
   m_EditorClassIdentifier: 
   isUnlocked: 0
-  setPrice: 5000
-  setTimeCoefficient: 0.1
+  setPrice: 10000
+  setTimeCoefficient: 0.2

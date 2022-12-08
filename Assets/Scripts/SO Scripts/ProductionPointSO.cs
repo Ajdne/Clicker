@@ -30,12 +30,6 @@ public class ProductionPointSO : ScriptableObject
     private float profitTime;
     public float ProfitTime { get { return profitTime; } set { profitTime = value; } }
 
-    //private void OnValidate()   // saving data for reset function
-    //{
-    //    price = setPrice;
-    //    profitTime = setProfitTime;
-    //}
-
     // function that can be called from context menu
     // used during testing
     public void Reset()
@@ -69,15 +63,15 @@ public class ProductionPointSO : ScriptableObject
     private float IncreaseUpgradePrice()
     {
         // linear rise - the benefits of upgrade are lower with higher levels
-        return price += (0.7f * _upgradeLevel);
+        return price += (price * 0.3f * _upgradeLevel);
     }
 
     private float IncreaseProfitValue()
     {
         // f(x) = log(x)  ---> simulating diminishing returns by making the benefit of upgrade rise logarithmically
-        _profitCoefficient = Mathf.Log10(_upgradeLevel) + 1;
+        _profitCoefficient = (Mathf.Log10(_upgradeLevel) + 1) * 1.3f;
 
-        return profitValue += _profitCoefficient;
+        return profitValue *= _profitCoefficient;
     }
 
 }
