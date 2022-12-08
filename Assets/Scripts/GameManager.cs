@@ -72,15 +72,15 @@ public class GameManager : MonoBehaviour
     {
         if (num > 999999999)
         {
-            return num.ToString("0,,,.###B");
+            return "$" + num.ToString("0,,,.###B");
         }
         else if (num > 999999)
         {
-            return num.ToString("0,,.###M");
+            return "$" + num.ToString("0,,.###M");
         }
         else if (num > 999)
         {
-            return num.ToString("0,.###k");
+            return "$" + num.ToString("0,.###k");
         }
         else
         {
