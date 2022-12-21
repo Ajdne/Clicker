@@ -16,6 +16,10 @@ public class GenerateMoney : MonoBehaviour
     [SerializeField] private FloatingUpgradeText moneyEarnedCanvasScript;
     [SerializeField] private TextMeshProUGUI moneyEarnedText;
 
+    [Space(20)]
+    [Header("Audio"), Space(5)]
+    [SerializeField] private AudioSource moneyAudioSource; // audio source on canvas for money earned clip
+
     private float _timer;
     public float Timer { get { return _timer; } set { _timer = value; } }   // drone is using this
 
@@ -71,6 +75,9 @@ public class GenerateMoney : MonoBehaviour
             moneyEarnedText.text = "+" + GameManager.ToKMB((_pointSO.ProfitValue)); // formating text
             // make the dollars fade away
             StartCoroutine(moneyEarnedCanvasScript.FlyAway());
+
+            // play sound
+            moneyAudioSource.Play();
 
             // reset timer
             _timer = 0;

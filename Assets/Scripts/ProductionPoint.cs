@@ -24,6 +24,7 @@ public class ProductionPoint : MonoBehaviour
 
     [SerializeField] private AudioClip levelUpClip; // plays on every upgrade
     [SerializeField] private AudioClip buyClip; // plays on every purchase
+    //[SerializeField] private AudioClip moneyEarnedClip;   // plays whenever the money timer is complete
     [Space(15f)]
 
     [Header("Canvas Settings"), Space(5)]
