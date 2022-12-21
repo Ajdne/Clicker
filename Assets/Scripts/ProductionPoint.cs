@@ -21,11 +21,9 @@ public class ProductionPoint : MonoBehaviour
 
     [Header("Audio Setting"), Space(5)]
     [SerializeField] private AudioSource audioSource;   // audio source for upgrades
-    [SerializeField] private AudioSource keyboardAudioSource;   // audio source for keyboard clicking
 
     [SerializeField] private AudioClip levelUpClip; // plays on every upgrade
     [SerializeField] private AudioClip buyClip; // plays on every purchase
-    [SerializeField] private AudioClip keyboardClickClip;   // plays for every unlocked programmer
     [Space(15f)]
 
     [Header("Canvas Settings"), Space(5)]
